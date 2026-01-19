@@ -15,9 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function HomePage() {
     useEffect(() => {
-        // GSAP context for cleanup
         const ctx = gsap.context(() => {
-            // Smooth scroll setup
             ScrollTrigger.config({
                 autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load',
             });

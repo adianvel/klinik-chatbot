@@ -27,12 +27,10 @@ const Navbar = () => {
         `}
             >
                 <div className="flex items-center justify-between">
-                    {/* Logo */}
                     <Link to="/" className="text-2xl font-bold font-cormorant italic">
                         K2+
                     </Link>
 
-                    {/* Desktop Menu */}
                     <div className="hidden md:flex items-center gap-8">
                         <a href="#layanan" className="hover:opacity-70 transition-opacity">Layanan</a>
                         <a href="#filosofi" className="hover:opacity-70 transition-opacity">Filosofi</a>
@@ -52,7 +50,6 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button
                         className="md:hidden"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -61,7 +58,6 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {mobileMenuOpen && (
                     <div className="md:hidden mt-4 pt-4 border-t border-white/20">
                         <div className="flex flex-col gap-4">

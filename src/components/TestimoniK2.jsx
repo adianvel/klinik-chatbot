@@ -44,7 +44,6 @@ const TestimoniK2 = () => {
             const scrollContainer = scrollRef.current;
             if (!scrollContainer) return;
 
-            // Duplicate content for seamless loop
             const scrollWidth = scrollContainer.scrollWidth / 2;
 
             gsap.to(scrollContainer, {
@@ -61,7 +60,6 @@ const TestimoniK2 = () => {
         return () => ctx.revert();
     }, []);
 
-    // Double the testimonials for seamless loop
     const doubledTestimoni = [...testimoniList, ...testimoniList];
 
     return (
@@ -77,7 +75,6 @@ const TestimoniK2 = () => {
                 </div>
             </div>
 
-            {/* Scrolling Container */}
             <div className="relative">
                 <div
                     ref={scrollRef}
@@ -107,7 +104,6 @@ const TestimoniK2 = () => {
                     ))}
                 </div>
 
-                {/* Gradient Overlays */}
                 <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-charcoal to-transparent pointer-events-none"></div>
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-charcoal to-transparent pointer-events-none"></div>
             </div>

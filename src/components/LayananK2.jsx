@@ -37,7 +37,6 @@ const LayananK2 = () => {
                     </p>
                 </div>
 
-                {/* Bento Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {layananList.map((layanan, index) => (
                         <TiltCard key={index}>

@@ -23,48 +23,31 @@ export default function ChatPanel({ onClose }) {
     setIsTyping(true)
 
     try {
-      const response = await fetch("http://127.0.0.1:11434/api/chat", {
+      const response = await fetch("http://127.0.0.1:8000/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: "kiana",
-          messages: [
-            {
-              role: "system",
-              content:
-                "Kamu adalah chatbot konseling. Sikapmu empatik, lembut, dan menenangkan. Dengarkan pengguna, validasi perasaannya, dan berikan respons singkat yang tidak menghakimi."
-            },
-            {
-              role: "user",
-              content: userMessage
-            }
-          ],
-          options: {
-            temperature: 0.4,
-            num_ctx: 1024,
-            num_predict: 180
-          },
-          stream: false
+          message: userMessage,
+          history: messages
         })
       })
 
       if (!response.ok) {
-          const text = await response.text()
-          throw new Error(`Ollama HTTP ${response.status}: ${text}`)
+        const text = await response.text()
+        throw new Error(`Backend error ${response.status}: ${text}`)
       }
 
       const data = await response.json()
-      const aiResponse =
-        data.message?.content || "Aku di sini mendengarkan kamu 🌱"
+      const aiResponse = data.response || "Aku di sini mendengarkan kamu 🌱"
 
       setMessages(prev => [
         ...prev,
         { role: "assistant", content: aiResponse }
       ])
     } catch (error) {
-      console.error("Ollama error:", error)
+      console.error("Backend error:", error)
       setMessages(prev => [
         ...prev,
         {
@@ -81,7 +64,6 @@ export default function ChatPanel({ onClose }) {
     <div className="fixed inset-0 z-50 flex items-end justify-end bg-black/40">
       <div className="w-full max-w-md h-[80vh] bg-white rounded-t-2xl shadow-xl m-4 flex flex-col">
 
-        {}
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="font-semibold text-lg text-black">
             Chat Konseling
@@ -94,7 +76,6 @@ export default function ChatPanel({ onClose }) {
           </button>
         </div>
 
-        {}
         <div className="flex-1 p-4 overflow-y-auto space-y-2 text-sm bg-green-50">
           {messages.length === 0 && !isTyping && (
             <div className="text-center text-gray-400 mt-10">
@@ -106,10 +87,9 @@ export default function ChatPanel({ onClose }) {
             <div
               key={i}
               className={`max-w-[80%] px-3 py-2 rounded-lg whitespace-pre-wrap
-                ${
-                  msg.role === "user"
-                    ? "ml-auto bg-green-500 text-white"
-                    : "mr-auto bg-white border text-gray-800"
+                ${msg.role === "user"
+                  ? "ml-auto bg-green-500 text-white"
+                  : "mr-auto bg-white border text-gray-800"
                 }`}
             >
               {msg.content}
@@ -125,7 +105,6 @@ export default function ChatPanel({ onClose }) {
           <div ref={messagesEndRef} />
         </div>
 
-        {}
         <div className="p-4 border-t flex gap-2 bg-white">
           <input
             type="text"

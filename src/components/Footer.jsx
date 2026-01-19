@@ -5,7 +5,6 @@ const Footer = () => {
         <footer className="bg-charcoal text-white">
             <div className="container mx-auto px-6 max-w-6xl">
                 <div className="grid md:grid-cols-4 gap-12 mb-12">
-                    {/* Brand */}
                     <div className="md:col-span-2">
                         <h3 className="text-3xl font-cormorant italic font-bold mb-4">
                             Klinik K2+
@@ -30,7 +29,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Links */}
                     <div>
                         <h4 className="font-outfit font-bold mb-4">Tautan</h4>
                         <ul className="space-y-2">

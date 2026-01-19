@@ -34,19 +34,16 @@ const Hero = () => {
             ref={heroRef}
             className="relative h-[100dvh] flex items-end pb-32 overflow-hidden"
         >
-            {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <img
                     src="https://images.unsplash.com/photo-1753187991725-76940ce624c0?q=80"
                     alt="Supportive counseling environment"
                     className="w-full h-full object-cover"
                 />
-                {/* Gradient Overlays */}
                 <div className="absolute inset-0 bg-gradient-to-b from-moss/30 via-charcoal/50 to-charcoal/60"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-transparent to-transparent"></div>
             </div>
 
-            {/* Content */}
             <div ref={textRef} className="relative z-10 container mx-auto px-6 max-w-6xl">
                 <div className="space-y-4">
                     <h1 className="text-white text-5xl md:text-7xl font-outfit font-light tracking-tighter">

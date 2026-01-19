@@ -25,7 +25,6 @@ const ProgramK2 = () => {
                 }
             });
 
-            // Fade and scale effect for cards as they get covered
             cards.forEach((card, index) => {
                 if (index < cards.length - 1) {
                     gsap.to(card, {
@@ -86,7 +85,6 @@ const ProgramK2 = () => {
                     </p>
                 </div>
 
-                {/* Stacking Cards */}
                 <div ref={cardsContainerRef} className="relative">
                     {k2Programs.map((program, index) => (
                         <div
@@ -94,7 +92,6 @@ const ProgramK2 = () => {
                             className="program-card mb-8 last:mb-0"
                         >
                             <div className="w-full min-h-[70vh] rounded-[3rem] overflow-hidden relative">
-                                {/* Background Image */}
                                 <div className="absolute inset-0">
                                     <img
                                         src={program.image}
@@ -104,7 +101,6 @@ const ProgramK2 = () => {
                                     <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/70"></div>
                                 </div>
 
-                                {/* Animation Overlay */}
                                 <div className="absolute inset-0">
                                     {program.animation === 'rotate' && (
                                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -119,7 +115,6 @@ const ProgramK2 = () => {
                                     )}
                                 </div>
 
-                                {/* Content */}
                                 <div className="relative z-10 p-12 md:p-16 h-full flex flex-col justify-end min-h-[70vh]">
                                     <div className="text-cream text-sm font-outfit uppercase tracking-wider mb-4">
                                         Program {index + 1}

@@ -42,7 +42,6 @@ const FilosofiK2 = () => {
             ref={sectionRef}
             className="relative py-32 bg-charcoal overflow-hidden"
         >
-            {/* Parallax Background */}
             <div
                 className="absolute inset-0 opacity-15"
                 style={{
@@ -53,12 +52,10 @@ const FilosofiK2 = () => {
                 }}
             ></div>
 
-            {/* Noise Overlay */}
             <div className="absolute inset-0 noise-overlay"></div>
 
             <div ref={textRef} className="relative z-10 container mx-auto px-6 max-w-6xl">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
-                    {/* Left Side */}
                     <div className="filosofi-text">
                         <h3 className="text-white text-3xl md:text-4xl font-light leading-tight">
                             Mereka bertanya
@@ -68,7 +65,6 @@ const FilosofiK2 = () => {
                         </h2>
                     </div>
 
-                    {/* Right Side */}
                     <div className="filosofi-text">
                         <h3 className="text-white text-3xl md:text-4xl font-light leading-tight">
                             Kami bertanya
@@ -79,7 +75,6 @@ const FilosofiK2 = () => {
                     </div>
                 </div>
 
-                {/* Manifesto Text */}
                 <div className="filosofi-text mt-20 max-w-3xl mx-auto text-center">
                     <p className="text-white text-lg md:text-xl leading-relaxed">
                         Kami percaya setiap individu berhak didengar tanpa dihakimi. Dengan pendekatan

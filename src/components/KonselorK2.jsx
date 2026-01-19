@@ -49,7 +49,6 @@ const KonselorK2 = () => {
                                 }
               `}
                         >
-                            {/* Photo */}
                             <div className="flex justify-center mb-6">
                                 <div className={`
                   w-32 h-32 rounded-full overflow-hidden border-4
@@ -63,7 +62,6 @@ const KonselorK2 = () => {
                                 </div>
                             </div>
 
-                            {/* Name & Info */}
                             <div className="text-center mb-6">
                                 <h3 className={`text-2xl font-outfit font-bold mb-2 ${konselor.highlighted ? 'text-white' : 'text-charcoal'}`}>
                                     {konselor.name}
@@ -80,7 +78,6 @@ const KonselorK2 = () => {
                                 </span>
                             </div>
 
-                            {/* Quote */}
                             <p className={`text-center text-sm italic mb-6 ${konselor.highlighted ? 'text-white/70' : 'text-charcoal/60'}`}>
                                 "Setiap cerita layak untuk didengar tanpa dihakimi"
                             </p>
@@ -101,7 +98,6 @@ const KonselorK2 = () => {
                     ))}
                 </div>
 
-                {/* Additional Info */}
                 <div className="text-center mt-16">
                     <p className="text-charcoal/60 mb-4">
                         Ingin bergabung menjadi konselor sebaya?

@@ -47,7 +47,6 @@ const KonselingPage = () => {
         e.preventDefault();
         setIsLoading(true);
 
-        // Simulate API call
         setTimeout(() => {
             setIsLoading(false);
             setIsSubmitted(true);
@@ -86,7 +85,6 @@ const KonselingPage = () => {
 
     return (
         <div className="min-h-screen relative">
-            {/* Background Image */}
             <div className="fixed inset-0 z-0">
                 <img
                     src="https://images.unsplash.com/photo-1645498579389-58fe451e90b4?q=80"
@@ -95,7 +93,6 @@ const KonselingPage = () => {
                 />
                 <div className="absolute inset-0 bg-cream/20"></div>
             </div>
-            {/* Header */}
             <div className="bg-moss py-6 relative z-10">
                 <div className="container mx-auto px-6 max-w-6xl">
                     <Link
@@ -110,7 +107,6 @@ const KonselingPage = () => {
 
             <div className="container mx-auto px-6 max-w-6xl py-12 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12">
-                    {/* Left Side - Info */}
                     <div>
                         <h1 className="text-4xl md:text-5xl font-outfit font-bold text-charcoal tracking-tighter mb-4">
                             Mulai Konseling
@@ -120,7 +116,6 @@ const KonselingPage = () => {
                             Data Anda dijamin kerahasiaannya.
                         </p>
 
-                        {/* Trust Indicators */}
                         <div className="space-y-4 mb-8">
                             <div className="flex items-center gap-4 p-4 bg-white rounded-xl">
                                 <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
@@ -154,10 +149,8 @@ const KonselingPage = () => {
                         </div>
                     </div>
 
-                    {/* Right Side - Form */}
                     <div className="bg-white rounded-[2rem] p-8 shadow-xl">
                         <form onSubmit={handleSubmit} className="space-y-5">
-                            {/* Nama */}
                             <div>
                                 <label className="block text-charcoal font-medium mb-2">
                                     Nama Lengkap <span className="text-red-500">*</span>
@@ -172,7 +165,6 @@ const KonselingPage = () => {
                                     placeholder="Masukkan nama lengkap"
                                 />
                             </div>
-                            {/* No HP */}
                             <div>
                                 <label className="block text-charcoal font-medium mb-2">
                                     Nomor WhatsApp <span className="text-red-500">*</span>
@@ -188,7 +180,6 @@ const KonselingPage = () => {
                                 />
                             </div>
 
-                            {/* Jenis Layanan */}
                             <div>
                                 <label className="block text-charcoal font-medium mb-2">
                                     Jenis Layanan <span className="text-red-500">*</span>
@@ -207,7 +198,6 @@ const KonselingPage = () => {
                                 </select>
                             </div>
 
-                            {/* Jadwal Preferensi */}
                             <div>
                                 <label className="block text-charcoal font-medium mb-2">
                                     Jadwal Preferensi <span className="text-red-500">*</span>
@@ -226,7 +216,6 @@ const KonselingPage = () => {
                                 </select>
                             </div>
 
-                            {/* Keluhan */}
                             <div>
                                 <label className="block text-charcoal font-medium mb-2">
                                     Keluhan / Hal yang Ingin Dibicarakan <span className="text-charcoal/40">(Opsional)</span>
@@ -241,7 +230,6 @@ const KonselingPage = () => {
                                 />
                             </div>
 
-                            {/* Submit Button */}
                             <button
                                 type="submit"
                                 disabled={isLoading}

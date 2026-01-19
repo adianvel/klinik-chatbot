@@ -16,10 +16,8 @@ function App() {
         <Route path="/konseling" element={<KonselingPage />} />
       </Routes>
 
-      {}
       <ChatButton onClick={() => setIsChatOpen(true)} />
 
-      {}
       {isChatOpen && (
         <ChatPanel onClose={() => setIsChatOpen(false)} />
       )}
