@@ -2,7 +2,8 @@ import httpx
 from typing import Optional
 
 OLLAMA_BASE_URL = "http://127.0.0.1:11434"
-OLLAMA_MODEL = "llama3.2"
+DEFAULT_MODEL = "kiana"
+AVAILABLE_MODELS = ["kiana", "llama3.2"]
 
 SYSTEM_PROMPT = """Kamu adalah chatbot konseling bernama Kiana dari Klinik K2+ UNU Yogyakarta.
 Sikapmu empatik, lembut, dan menenangkan. Dengarkan pengguna, validasi perasaannya, 
@@ -12,8 +13,11 @@ Jangan memberikan diagnosis medis, tetapi dorong pengguna untuk mencari bantuan 
 
 async def chat_with_ollama(
     user_message: str,
-    conversation_history: Optional[list] = None
+    conversation_history: Optional[list] = None,
+    model: Optional[str] = None
 ) -> str:
+    selected_model = model if model in AVAILABLE_MODELS else DEFAULT_MODEL
+    
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     
     if conversation_history:
@@ -26,7 +30,7 @@ async def chat_with_ollama(
     messages.append({"role": "user", "content": user_message})
     
     payload = {
-        "model": OLLAMA_MODEL,
+        "model": selected_model,
         "messages": messages,
         "options": {
             "temperature": 0.4,
@@ -54,3 +58,7 @@ def check_ollama_health() -> bool:
             return response.status_code == 200
     except Exception:
         return False
+
+
+def get_available_models() -> list:
+    return AVAILABLE_MODELS

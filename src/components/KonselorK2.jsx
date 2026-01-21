@@ -8,6 +8,7 @@ const KonselorK2 = () => {
             specialty: 'Kesehatan Mental',
             image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
             highlighted: false,
+            whatsapp: '6282324672384',
         },
         {
             name: 'Siti Nurhaliza',
@@ -15,6 +16,7 @@ const KonselorK2 = () => {
             specialty: 'Konseling Keluarga',
             image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',
             highlighted: true,
+            whatsapp: '6281234567891',
         },
         {
             name: 'Muhammad Fajar',
@@ -22,8 +24,16 @@ const KonselorK2 = () => {
             specialty: 'Pendampingan Spiritual',
             image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
             highlighted: false,
+            whatsapp: '6281234567892',
         },
     ];
+
+    const getWhatsAppLink = (konselor) => {
+        const message = encodeURIComponent(
+            `Halo Kak ${konselor.name.split(' ')[0]}, saya ingin konseling tentang ${konselor.specialty}. Apakah ada waktu yang tersedia?`
+        );
+        return `https://wa.me/${konselor.whatsapp}?text=${message}`;
+    };
 
     return (
         <section id="konselor" className="py-32 bg-cream">
@@ -82,7 +92,10 @@ const KonselorK2 = () => {
                                 "Setiap cerita layak untuk didengar tanpa dihakimi"
                             </p>
 
-                            <button
+                            <a
+                                href={getWhatsAppLink(konselor)}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={`
                   w-full py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2
                   ${konselor.highlighted
@@ -93,7 +106,7 @@ const KonselorK2 = () => {
                             >
                                 <Heart size={18} />
                                 Konseling dengan {konselor.name.split(' ')[0]}
-                            </button>
+                            </a>
                         </div>
                     ))}
                 </div>

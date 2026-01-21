@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 from typing import Optional, List
 import logging
 
-from ollama_service import chat_with_ollama, check_ollama_health
+from ollama_service import chat_with_ollama, check_ollama_health, get_available_models
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -36,16 +36,22 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
     message: str = Field(..., min_length=1)
     history: Optional[List[Message]] = Field(default=None)
+    model: Optional[str] = Field(default=None)
 
 
 class ChatResponse(BaseModel):
     response: str = Field(...)
     status: str = Field(default="success")
+    model: str = Field(...)
 
 
 class HealthResponse(BaseModel):
     status: str
     ollama_connected: bool
+
+
+class ModelsResponse(BaseModel):
+    models: List[str]
 
 
 @app.get("/", tags=["General"])
@@ -66,9 +72,15 @@ async def health_check():
     )
 
 
+@app.get("/models", response_model=ModelsResponse, tags=["General"])
+async def list_models():
+    return ModelsResponse(models=get_available_models())
+
+
 @app.post("/chat", response_model=ChatResponse, tags=["Chat"])
 async def chat(request: ChatRequest):
-    logger.info(f"Received chat request: {request.message[:50]}...")
+    selected_model = request.model if request.model else "kiana"
+    logger.info(f"Chat request using model '{selected_model}': {request.message[:50]}...")
     
     try:
         history = None
@@ -77,11 +89,12 @@ async def chat(request: ChatRequest):
         
         response_text = await chat_with_ollama(
             user_message=request.message,
-            conversation_history=history
+            conversation_history=history,
+            model=selected_model
         )
         
         logger.info("Chat response generated successfully")
-        return ChatResponse(response=response_text, status="success")
+        return ChatResponse(response=response_text, status="success", model=selected_model)
         
     except Exception as e:
         logger.error(f"Chat error: {str(e)}")
