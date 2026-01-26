@@ -45,7 +45,7 @@ const FilosofiK2 = () => {
             <div
                 className="absolute inset-0 opacity-15"
                 style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1573497019236-17f8177b81e8?w=1920)',
+                    backgroundImage: 'url(https://images.unsplash.com/photo-1579600161224-cac5a2971069?q=80&w=1171)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundAttachment: 'fixed',
