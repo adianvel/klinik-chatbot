@@ -8,6 +8,7 @@ const KonselingPage = () => {
         noHp: '',
         email: '',
         jenisLayanan: '',
+        tanggalKonseling: '',
         jadwalPreferensi: '',
         keluhan: '',
     });
@@ -47,9 +48,22 @@ const KonselingPage = () => {
         e.preventDefault();
         setIsLoading(true);
 
+        const message = encodeURIComponent(
+            `Halo Admin Klinik K2+, saya ingin mendaftar konseling.\n\n` +
+            `Nama: ${formData.nama}\n` +
+            `No HP: ${formData.noHp}\n` +
+            `Layanan: ${formData.jenisLayanan}\n` +
+            `Tanggal: ${formData.tanggalKonseling}\n` +
+            `Jadwal: ${formData.jadwalPreferensi}\n` +
+            `Keluhan: ${formData.keluhan || '-'}`
+        );
+
+        const whatsappNumber = "6282324672384"; // Ganti dengan nomor admin yang sesuai
+
         setTimeout(() => {
             setIsLoading(false);
             setIsSubmitted(true);
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
         }, 1500);
     };
 
@@ -196,6 +210,20 @@ const KonselingPage = () => {
                                         <option key={idx} value={lay}>{lay}</option>
                                     ))}
                                 </select>
+                            </div>
+
+                            <div>
+                                <label className="block text-charcoal font-medium mb-2">
+                                    Tanggal Konseling <span className="text-red-500">*</span>
+                                </label>
+                                <input
+                                    type="date"
+                                    name="tanggalKonseling"
+                                    value={formData.tanggalKonseling}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full px-4 py-3 rounded-xl border border-charcoal/20 focus:border-moss focus:ring-2 focus:ring-moss/20 outline-none transition-all"
+                                />
                             </div>
 
                             <div>
