@@ -37,7 +37,7 @@ const Hero = () => {
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1753187991725-76940ce624c0?q=80&w=1920)',
+                    backgroundImage: 'url(https://images.unsplash.com/photo-1753187991725-76940ce624c0?q=95&w=2400&auto=format)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'

@@ -19,7 +19,7 @@ const Navbar = () => {
         <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] md:w-[95%] max-w-6xl">
             <div
                 className={`
-          px-5 md:px-6 py-3 md:py-4 transition-all duration-500
+          px-5 md:px-6 py-3 md:py-4 transition-[background-color,box-shadow,backdrop-filter] duration-300
           ${mobileMenuOpen
                         ? 'rounded-2xl bg-white/95 backdrop-blur-md shadow-xl text-charcoal'
                         : scrolled
