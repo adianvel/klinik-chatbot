@@ -58,7 +58,7 @@ const KonselingPage = () => {
             `Keluhan: ${formData.keluhan || '-'}`
         );
 
-        const whatsappNumber = "6282324672384"; // Ganti dengan nomor admin yang sesuai
+        const whatsappNumber = "6285123299880";// Ganti dengan nomor admin yang sesuai
 
         setTimeout(() => {
             setIsLoading(false);

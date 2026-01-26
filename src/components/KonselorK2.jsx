@@ -3,28 +3,28 @@ import { GraduationCap, Heart } from 'lucide-react';
 const KonselorK2 = () => {
     const konselorList = [
         {
-            name: 'Ahmad Rizki',
-            study: 'Psikologi Islam',
+            name: 'Ainun Nurulloh',
+            study: 'Pendidikan Bahasa Inggris',
             specialty: 'Kesehatan Mental',
-            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+            image: 'mbakainun.jpeg',
             highlighted: false,
-            whatsapp: '6282324672384',
+            whatsapp: '6281238786124',
         },
         {
-            name: 'Siti Nurhaliza',
+            name: 'Ilham Mustaqim',
             study: 'Bimbingan Konseling',
             specialty: 'Konseling Keluarga',
-            image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',
+            image: 'ilham.jpeg',
             highlighted: true,
-            whatsapp: '6281234567891',
+            whatsapp: '628818548476',
         },
         {
-            name: 'Muhammad Fajar',
-            study: 'Pendidikan Agama Islam',
+            name: 'Fadiyyah',
+            study: 'Manajemen',
             specialty: 'Pendampingan Spiritual',
-            image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+            image: 'mbakfadiya.jpeg',
             highlighted: false,
-            whatsapp: '6281234567892',
+            whatsapp: '6285867644892',
         },
     ];
 
@@ -116,7 +116,6 @@ const KonselorK2 = () => {
                         Ingin bergabung menjadi konselor sebaya?
                     </p>
                     <a
-                        href="#"
                         className="inline-block px-8 py-4 border-2 border-moss text-moss rounded-full font-medium hover:bg-moss hover:text-white transition-all"
                     >
                         Daftar Pelatihan Konselor
