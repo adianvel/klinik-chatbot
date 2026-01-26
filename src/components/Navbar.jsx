@@ -16,13 +16,15 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+        <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] md:w-[95%] max-w-6xl">
             <div
                 className={`
-          px-6 py-4 rounded-full transition-all duration-500
-          ${scrolled
-                        ? 'glass-dark text-moss shadow-2xl'
-                        : 'bg-transparent text-white'
+          px-5 md:px-6 py-3 md:py-4 transition-all duration-500
+          ${mobileMenuOpen
+                        ? 'rounded-2xl bg-white/95 backdrop-blur-md shadow-xl text-charcoal'
+                        : scrolled
+                            ? 'rounded-full glass-dark text-moss shadow-2xl'
+                            : 'rounded-full bg-white/10 backdrop-blur-sm text-white'
                     }
         `}
             >
@@ -51,7 +53,7 @@ const Navbar = () => {
                     </div>
 
                     <button
-                        className="md:hidden"
+                        className="md:hidden p-2 -mr-2"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -59,15 +61,40 @@ const Navbar = () => {
                 </div>
 
                 {mobileMenuOpen && (
-                    <div className="md:hidden mt-4 pt-4 border-t border-white/20">
-                        <div className="flex flex-col gap-4">
-                            <a href="#layanan" className="hover:opacity-70 transition-opacity">Layanan</a>
-                            <a href="#filosofi" className="hover:opacity-70 transition-opacity">Filosofi</a>
-                            <a href="#program" className="hover:opacity-70 transition-opacity">Program</a>
-                            <a href="#konselor" className="hover:opacity-70 transition-opacity">Konselor</a>
+                    <div className="md:hidden mt-4 pt-4 border-t border-charcoal/10">
+                        <div className="flex flex-col gap-3">
+                            <a
+                                href="#layanan"
+                                className="py-2 hover:text-moss transition-colors"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Layanan
+                            </a>
+                            <a
+                                href="#filosofi"
+                                className="py-2 hover:text-moss transition-colors"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Filosofi
+                            </a>
+                            <a
+                                href="#program"
+                                className="py-2 hover:text-moss transition-colors"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Program
+                            </a>
+                            <a
+                                href="#konselor"
+                                className="py-2 hover:text-moss transition-colors"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Konselor
+                            </a>
                             <Link
                                 to="/konseling"
-                                className="px-6 py-2 rounded-full font-medium bg-white text-moss hover:bg-opacity-90 transition-all text-center"
+                                className="mt-2 px-6 py-3 rounded-full font-medium bg-moss text-white hover:bg-opacity-90 transition-all text-center"
+                                onClick={() => setMobileMenuOpen(false)}
                             >
                                 Mulai Konseling
                             </Link>

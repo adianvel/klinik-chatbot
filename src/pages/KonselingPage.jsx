@@ -98,14 +98,15 @@ const KonselingPage = () => {
     }
 
     return (
-        <div className="min-h-screen relative">
-            <div className="fixed inset-0 z-0">
+        <div className="min-h-screen relative overflow-hidden">
+            <div className="absolute inset-0 z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1645498579389-58fe451e90b4?q=80"
+                    src="https://images.unsplash.com/photo-1645498579389-58fe451e90b4?q=80&w=1920"
                     alt="Supportive hand"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
+                    style={{ minHeight: '100vh' }}
                 />
-                <div className="absolute inset-0 bg-cream/20"></div>
+                <div className="absolute inset-0 bg-cream/30 md:bg-cream/20"></div>
             </div>
             <div className="bg-moss py-6 relative z-10">
                 <div className="container mx-auto px-6 max-w-6xl">
