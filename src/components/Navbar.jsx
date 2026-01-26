@@ -21,10 +21,10 @@ const Navbar = () => {
                 className={`
           px-5 md:px-6 py-3 md:py-4 transition-all duration-500
           ${mobileMenuOpen
-                        ? 'rounded-2xl bg-white/95 backdrop-blur-md shadow-xl text-charcoal'
+                        ? 'bg-white/95 backdrop-blur-md shadow-xl text-charcoal'
                         : scrolled
-                            ? 'rounded-full glass-dark text-moss shadow-2xl'
-                            : 'rounded-full bg-white/10 backdrop-blur-sm text-white'
+                            ? 'glass-dark text-moss shadow-2xl'
+                            : 'bg-white/10 backdrop-blur-sm text-white'
                     }
         `}
             >
