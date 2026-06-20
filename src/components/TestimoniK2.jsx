@@ -40,6 +40,8 @@ const TestimoniK2 = () => {
     ];
 
     useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const ctx = gsap.context(() => {
             const scrollContainer = scrollRef.current;
             if (!scrollContainer) return;
@@ -66,7 +68,7 @@ const TestimoniK2 = () => {
         <section id="testimoni" className="py-24 bg-charcoal overflow-hidden" ref={containerRef}>
             <div className="container mx-auto px-6 max-w-6xl mb-12">
                 <div className="text-center">
-                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-white tracking-tighter mb-4">
+                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-white mb-4">
                         Cerita Mereka
                     </h2>
                     <p className="text-xl text-white/70 max-w-2xl mx-auto">

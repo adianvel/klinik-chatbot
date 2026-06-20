@@ -39,7 +39,7 @@ const KonselorK2 = () => {
         <section id="konselor" className="py-32 bg-cream">
             <div className="container mx-auto px-6 max-w-6xl">
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-charcoal tracking-tighter mb-4">
+                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-charcoal mb-4">
                         Konselor Sebaya
                     </h2>
                     <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">
@@ -67,6 +67,9 @@ const KonselorK2 = () => {
                                     <img
                                         src={konselor.image}
                                         alt={konselor.name}
+                                        width="128"
+                                        height="128"
+                                        loading="lazy"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
@@ -97,7 +100,7 @@ const KonselorK2 = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`
-                  w-full py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2
+                  w-full min-h-12 py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2
                   ${konselor.highlighted
                                         ? 'bg-charcoal text-white hover:bg-opacity-90'
                                         : 'bg-moss text-white hover:bg-opacity-90'
@@ -116,7 +119,8 @@ const KonselorK2 = () => {
                         Ingin bergabung menjadi konselor sebaya?
                     </p>
                     <a
-                        className="inline-block px-8 py-4 border-2 border-moss text-moss rounded-full font-medium hover:bg-moss hover:text-white transition-all"
+                        href="/konseling"
+                        className="inline-flex min-h-12 items-center px-8 py-4 border border-moss text-moss rounded-full font-medium hover:bg-moss hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2"
                     >
                         Daftar Pelatihan Konselor
                     </a>

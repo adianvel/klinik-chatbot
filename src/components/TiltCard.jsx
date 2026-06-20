@@ -7,6 +7,8 @@ const TiltCard = ({ children, className = '' }) => {
     useEffect(() => {
         const card = cardRef.current;
         if (!card) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!window.matchMedia('(pointer: fine)').matches) return;
 
         const handleMouseMove = (e) => {
             const rect = card.getBoundingClientRect();

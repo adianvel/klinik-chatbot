@@ -1,12 +1,16 @@
 export default function ChatButton({ onClick }) {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
-      className="fixed bottom-6 right-6 z-50 cursor-pointer"
+      aria-label="Buka chat konseling"
+      className="fixed bottom-6 right-6 z-50 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-4"
     >
       <img
         src="/logo_chatbot.png"
-        alt="Chatbot"
+        alt=""
+        width="100"
+        height="100"
         className="
           w-[100px] h-[100px]
           rounded-full
@@ -16,6 +20,6 @@ export default function ChatButton({ onClick }) {
           active:scale-95
         "
       />
-    </div>
+    </button>
   )
 }

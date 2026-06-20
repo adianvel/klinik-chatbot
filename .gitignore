@@ -1,1 +1,33 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+brand.md
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local screenshots/reference images
+image.png

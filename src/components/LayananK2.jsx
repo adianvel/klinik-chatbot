@@ -29,7 +29,7 @@ const LayananK2 = () => {
         <section id="layanan" className="py-24 bg-cream">
             <div className="container mx-auto px-6 max-w-6xl">
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-charcoal tracking-tighter mb-4">
+                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-charcoal mb-4">
                         Layanan Kami
                     </h2>
                     <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">

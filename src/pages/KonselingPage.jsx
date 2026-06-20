@@ -101,18 +101,18 @@ const KonselingPage = () => {
         <div className="min-h-screen relative overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1645498579389-58fe451e90b4?q=80&w=1920"
+                    src="/images/konseling.avif"
                     alt="Supportive hand"
                     className="w-full h-full object-cover object-center"
                     style={{ minHeight: '100vh' }}
                 />
                 <div className="absolute inset-0 bg-cream/30 md:bg-cream/20"></div>
             </div>
-            <div className="bg-moss py-6 relative z-10">
+            <div className="bg-moss py-4 relative z-10">
                 <div className="container mx-auto px-6 max-w-6xl">
                     <Link
                         to="/"
-                        className="inline-flex items-center gap-2 text-white hover:text-white transition-colors"
+                        className="inline-flex min-h-10 items-center gap-2 text-white hover:text-white transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                     >
                         <ArrowLeft size={20} />
                         <span>Kembali ke Beranda</span>
@@ -120,21 +120,21 @@ const KonselingPage = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto px-6 max-w-6xl py-12 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12">
+            <div className="container mx-auto px-6 max-w-6xl py-6 lg:py-8 relative z-10">
+                <div className="grid lg:grid-cols-[1fr_0.95fr] gap-8 lg:gap-10 items-start">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-outfit font-bold text-charcoal tracking-tighter mb-4">
+                        <h1 className="text-4xl md:text-5xl font-outfit font-bold text-charcoal mb-3">
                             Mulai Konseling
                         </h1>
-                        <p className="text-charcoal text-lg mb-8">
+                        <p className="text-charcoal text-lg mb-6 max-w-2xl">
                             Isi formulir di bawah ini untuk mendaftar sesi konseling.
                             Data Anda dijamin kerahasiaannya.
                         </p>
 
-                        <div className="space-y-4 mb-8">
-                            <div className="flex items-center gap-4 p-4 bg-white rounded-xl">
-                                <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
-                                    <Shield size={24} className="text-moss" />
+                        <div className="space-y-4 mb-6">
+                            <div className="flex items-center gap-4 p-4 lg:p-3 bg-white rounded-xl">
+                                <div className="w-12 h-12 lg:w-10 lg:h-10 bg-moss/10 rounded-full flex items-center justify-center shrink-0">
+                                    <Shield size={22} className="text-moss" />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-charcoal">100% Rahasia</h3>
@@ -142,9 +142,9 @@ const KonselingPage = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-4 p-4 bg-white rounded-xl">
-                                <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
-                                    <Clock size={24} className="text-moss" />
+                            <div className="flex items-center gap-4 p-4 lg:p-3 bg-white rounded-xl">
+                                <div className="w-12 h-12 lg:w-10 lg:h-10 bg-moss/10 rounded-full flex items-center justify-center shrink-0">
+                                    <Clock size={22} className="text-moss" />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-charcoal">Respon Cepat</h3>
@@ -152,9 +152,9 @@ const KonselingPage = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-4 p-4 bg-white rounded-xl">
-                                <div className="w-12 h-12 bg-moss/10 rounded-full flex items-center justify-center">
-                                    <Heart size={24} className="text-moss" />
+                            <div className="flex items-center gap-4 p-4 lg:p-3 bg-white rounded-xl">
+                                <div className="w-12 h-12 lg:w-10 lg:h-10 bg-moss/10 rounded-full flex items-center justify-center shrink-0">
+                                    <Heart size={22} className="text-moss" />
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-charcoal">Gratis</h3>
@@ -164,47 +164,53 @@ const KonselingPage = () => {
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-[2rem] p-8 shadow-xl">
-                        <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="bg-white rounded-[2rem] p-6 lg:p-7 shadow-xl">
+                        <form onSubmit={handleSubmit} className="space-y-3.5">
                             <div>
-                                <label className="block text-charcoal font-medium mb-2">
+                                <label htmlFor="nama" className="block text-charcoal font-medium mb-1.5">
                                     Nama Lengkap <span className="text-red-500">*</span>
                                 </label>
                                 <input
+                                    id="nama"
                                     type="text"
                                     name="nama"
                                     value={formData.nama}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-charcoal/20 focus:border-moss focus:ring-2 focus:ring-moss/20 outline-none transition-all"
-                                    placeholder="Masukkan nama lengkap"
+                                    autoComplete="name"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-charcoal/20 focus-visible:outline-none focus-visible:border-moss focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 transition-all"
+                                    placeholder="Nama sesuai kartu mahasiswa"
                                 />
                             </div>
                             <div>
-                                <label className="block text-charcoal font-medium mb-2">
+                                <label htmlFor="noHp" className="block text-charcoal font-medium mb-1.5">
                                     Nomor WhatsApp <span className="text-red-500">*</span>
                                 </label>
                                 <input
+                                    id="noHp"
                                     type="tel"
                                     name="noHp"
                                     value={formData.noHp}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-charcoal/20 focus:border-moss focus:ring-2 focus:ring-moss/20 outline-none transition-all"
+                                    autoComplete="tel"
+                                    inputMode="tel"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-charcoal/20 focus-visible:outline-none focus-visible:border-moss focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 transition-all"
                                     placeholder="08xxxxxxxxxx"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-charcoal font-medium mb-2">
+                                <label htmlFor="jenisLayanan" className="block text-charcoal font-medium mb-1.5">
                                     Jenis Layanan <span className="text-red-500">*</span>
                                 </label>
                                 <select
+                                    id="jenisLayanan"
                                     name="jenisLayanan"
                                     value={formData.jenisLayanan}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-charcoal/20 focus:border-moss focus:ring-2 focus:ring-moss/20 outline-none transition-all bg-white"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-charcoal/20 focus-visible:outline-none focus-visible:border-moss focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 transition-all bg-white"
                                 >
                                     <option value="">Pilih Jenis Layanan</option>
                                     {layananList.map((lay, idx) => (
@@ -214,29 +220,31 @@ const KonselingPage = () => {
                             </div>
 
                             <div>
-                                <label className="block text-charcoal font-medium mb-2">
+                                <label htmlFor="tanggalKonseling" className="block text-charcoal font-medium mb-1.5">
                                     Tanggal Konseling <span className="text-red-500">*</span>
                                 </label>
                                 <input
+                                    id="tanggalKonseling"
                                     type="date"
                                     name="tanggalKonseling"
                                     value={formData.tanggalKonseling}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-charcoal/20 focus:border-moss focus:ring-2 focus:ring-moss/20 outline-none transition-all"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-charcoal/20 focus-visible:outline-none focus-visible:border-moss focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 transition-all"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-charcoal font-medium mb-2">
+                                <label htmlFor="jadwalPreferensi" className="block text-charcoal font-medium mb-1.5">
                                     Jadwal Preferensi <span className="text-red-500">*</span>
                                 </label>
                                 <select
+                                    id="jadwalPreferensi"
                                     name="jadwalPreferensi"
                                     value={formData.jadwalPreferensi}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 rounded-xl border border-charcoal/20 focus:border-moss focus:ring-2 focus:ring-moss/20 outline-none transition-all bg-white"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-charcoal/20 focus-visible:outline-none focus-visible:border-moss focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 transition-all bg-white"
                                 >
                                     <option value="">Pilih Jadwal</option>
                                     {jadwalList.map((jadwal, idx) => (
@@ -246,15 +254,16 @@ const KonselingPage = () => {
                             </div>
 
                             <div>
-                                <label className="block text-charcoal font-medium mb-2">
+                                <label htmlFor="keluhan" className="block text-charcoal font-medium mb-1.5">
                                     Keluhan / Hal yang Ingin Dibicarakan <span className="text-charcoal/40">(Opsional)</span>
                                 </label>
                                 <textarea
+                                    id="keluhan"
                                     name="keluhan"
                                     value={formData.keluhan}
                                     onChange={handleChange}
-                                    rows={4}
-                                    className="w-full px-4 py-3 rounded-xl border border-charcoal/20 focus:border-moss focus:ring-2 focus:ring-moss/20 outline-none transition-all resize-none"
+                                    rows={3}
+                                    className="w-full px-4 py-2.5 rounded-xl border border-charcoal/20 focus-visible:outline-none focus-visible:border-moss focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2 transition-all resize-none"
                                     placeholder="Ceritakan secara singkat apa yang ingin Anda bicarakan..."
                                 />
                             </div>
@@ -262,7 +271,8 @@ const KonselingPage = () => {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full py-4 bg-moss text-white rounded-xl font-medium text-lg hover:bg-opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+                                aria-busy={isLoading}
+                                className="w-full min-h-12 py-3 bg-moss text-white rounded-xl font-medium text-lg hover:bg-charcoal transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2"
                             >
                                 {isLoading ? (
                                     <>

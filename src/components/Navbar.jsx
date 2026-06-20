@@ -12,6 +12,7 @@ const Navbar = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -29,19 +30,19 @@ const Navbar = () => {
         `}
             >
                 <div className="flex items-center justify-between">
-                    <Link to="/" className="text-2xl font-bold font-cormorant italic">
+                    <Link to="/" className="text-2xl font-bold font-cormorant italic rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current focus-visible:ring-offset-2">
                         K2+
                     </Link>
 
                     <div className="hidden md:flex items-center gap-8">
-                        <a href="#layanan" className="hover:opacity-70 transition-opacity">Layanan</a>
-                        <a href="#filosofi" className="hover:opacity-70 transition-opacity">Filosofi</a>
-                        <a href="#program" className="hover:opacity-70 transition-opacity">Program</a>
-                        <a href="#konselor" className="hover:opacity-70 transition-opacity">Konselor</a>
+                        <a href="#layanan" className="rounded-full hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current">Layanan</a>
+                        <a href="#filosofi" className="rounded-full hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current">Filosofi</a>
+                        <a href="#program" className="rounded-full hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current">Program</a>
+                        <a href="#konselor" className="rounded-full hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current">Konselor</a>
                         <Link
                             to="/konseling"
                             className={`
-                px-6 py-2 rounded-full font-medium transition-all
+                px-6 py-2 rounded-full font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current focus-visible:ring-offset-2
                 ${scrolled
                                     ? 'bg-moss text-white hover:bg-opacity-90'
                                     : 'bg-white text-moss hover:bg-opacity-90'
@@ -53,8 +54,11 @@ const Navbar = () => {
                     </div>
 
                     <button
-                        className="md:hidden p-2 -mr-2"
+                        type="button"
+                        className="md:hidden min-h-10 min-w-10 -mr-2 rounded-full inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-expanded={mobileMenuOpen}
+                        aria-label={mobileMenuOpen ? 'Tutup menu' : 'Buka menu'}
                     >
                         {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -65,35 +69,35 @@ const Navbar = () => {
                         <div className="flex flex-col gap-3">
                             <a
                                 href="#layanan"
-                                className="py-2 hover:text-moss transition-colors"
+                                className="py-2 rounded hover:text-moss transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Layanan
                             </a>
                             <a
                                 href="#filosofi"
-                                className="py-2 hover:text-moss transition-colors"
+                                className="py-2 rounded hover:text-moss transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Filosofi
                             </a>
                             <a
                                 href="#program"
-                                className="py-2 hover:text-moss transition-colors"
+                                className="py-2 rounded hover:text-moss transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Program
                             </a>
                             <a
                                 href="#konselor"
-                                className="py-2 hover:text-moss transition-colors"
+                                className="py-2 rounded hover:text-moss transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Konselor
                             </a>
                             <Link
                                 to="/konseling"
-                                className="mt-2 px-6 py-3 rounded-full font-medium bg-moss text-white hover:bg-opacity-90 transition-all text-center"
+                                className="mt-2 px-6 py-3 rounded-full font-medium bg-moss text-white hover:bg-opacity-90 transition-all text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Mulai Konseling

@@ -1,43 +1,14 @@
-import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
 
 const Hero = () => {
-    const heroRef = useRef(null);
-    const textRef = useRef(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const elements = textRef.current.children;
-
-            gsap.fromTo(
-                elements,
-                {
-                    opacity: 0,
-                    y: 30,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    stagger: 0.2,
-                    ease: 'power3.out',
-                }
-            );
-        }, heroRef);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
         <section
-            ref={heroRef}
-            className="relative h-[100dvh] flex items-end pb-32 overflow-hidden"
+            className="relative min-h-[100svh] flex items-end pb-24 md:pb-32 overflow-hidden"
         >
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1753187991725-76940ce624c0?q=95&w=2400&auto=format)',
+                    backgroundImage: 'url(/images/hero-klinik.avif)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'
@@ -47,22 +18,22 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent md:from-charcoal/50"></div>
             </div>
 
-            <div ref={textRef} className="relative z-10 container mx-auto px-6 max-w-6xl">
+            <div className="relative z-10 container mx-auto px-6 max-w-6xl">
                 <div className="space-y-4">
-                    <h1 className="text-white text-5xl md:text-7xl font-outfit font-light tracking-tighter">
+                    <h1 className="hero-reveal hero-reveal-1 text-white text-5xl md:text-7xl font-outfit font-light">
                         You Share,
                     </h1>
-                    <h2 className="text-white text-7xl md:text-9xl font-cormorant italic font-bold">
+                    <h2 className="hero-reveal hero-reveal-2 text-white text-7xl md:text-9xl font-cormorant italic font-bold">
                         We Care.
                     </h2>
-                    <p className="text-white/80 text-lg md:text-xl max-w-2xl font-light mt-6">
+                    <p className="hero-reveal hero-reveal-3 text-white/80 text-lg md:text-xl max-w-2xl font-light mt-6">
                         Klinik K2+ adalah ruang aman dan terpercaya untuk berbagi cerita,
                         mencari dukungan kesehatan mental, dan pendampingan spiritual
                         bagi mahasiswa UNU Yogyakarta.
                     </p>
                     <Link
                         to="/konseling"
-                        className="mt-8 px-8 py-4 bg-moss text-white rounded-full font-medium text-lg hover:bg-opacity-90 transition-all hover:scale-105 inline-block"
+                        className="hero-reveal hero-reveal-4 mt-8 inline-flex min-h-12 items-center px-8 py-4 bg-moss text-white rounded-full font-medium text-lg hover:bg-charcoal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-moss"
                     >
                         Mulai Konseling
                     </Link>

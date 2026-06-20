@@ -9,15 +9,14 @@ const FilosofiK2 = () => {
     const textRef = useRef(null);
 
     useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const ctx = gsap.context(() => {
             const elements = textRef.current.querySelectorAll('.filosofi-text');
 
             gsap.fromTo(
                 elements,
-                {
-                    opacity: 0,
-                    y: 50,
-                },
+                { opacity: 0, y: 50 },
                 {
                     opacity: 1,
                     y: 0,
@@ -37,22 +36,18 @@ const FilosofiK2 = () => {
     }, []);
 
     return (
-        <section
-            id="filosofi"
-            ref={sectionRef}
-            className="relative py-32 bg-charcoal overflow-hidden"
-        >
+        <section id="filosofi" ref={sectionRef} className="relative py-32 bg-charcoal overflow-hidden">
             <div
                 className="absolute inset-0 opacity-15"
                 style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1579600161224-cac5a2971069?q=80&w=1171)',
+                    backgroundImage: 'url(/images/filosofi.avif)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    backgroundAttachment: 'fixed',
                 }}
+                aria-hidden="true"
             ></div>
 
-            <div className="absolute inset-0 noise-overlay"></div>
+            <div className="absolute inset-0 noise-overlay" aria-hidden="true"></div>
 
             <div ref={textRef} className="relative z-10 container mx-auto px-6 max-w-6xl">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -78,9 +73,8 @@ const FilosofiK2 = () => {
                 <div className="filosofi-text mt-20 max-w-3xl mx-auto text-center">
                     <p className="text-white text-lg md:text-xl leading-relaxed">
                         Kami percaya setiap individu berhak didengar tanpa dihakimi. Dengan pendekatan
-                        holistik — menggabungkan aspek psikologis, sosial, dan spiritual —
-                        Klinik K2+ hadir sebagai ruang aman untuk membantumu menemukan keseimbangan
-                        dan kesejahteraan sejati.
+                        holistik, menggabungkan aspek psikologis, sosial, dan spiritual, Klinik K2+
+                        hadir sebagai ruang aman untuk membantumu menemukan keseimbangan dan kesejahteraan sejati.
                     </p>
                 </div>
             </div>

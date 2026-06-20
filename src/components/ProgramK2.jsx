@@ -9,6 +9,8 @@ const ProgramK2 = () => {
     const cardsContainerRef = useRef(null);
 
     useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const ctx = gsap.context(() => {
             const cards = gsap.utils.toArray('.program-card');
 
@@ -43,28 +45,25 @@ const ProgramK2 = () => {
 
         }, sectionRef);
 
-        return () => {
-            ctx.revert();
-            ScrollTrigger.getAll().forEach(st => st.kill());
-        };
+        return () => ctx.revert();
     }, []);
 
     const k2Programs = [
         {
             title: 'Kelas Pra-Nikah',
             description: 'Persiapan menuju pernikahan yang sehat dan bahagia dengan pemahaman mendalam tentang kehidupan berumah tangga.',
-            image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1920',
+            image: '/images/program1.avif',
             animation: 'scan',
         },
         {
             title: 'Pelatihan Konselor Sebaya',
             description: 'Program pelatihan untuk mahasiswa yang ingin menjadi konselor sebaya dan membantu teman-temannya.',
-            image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1920',
+            image: '/images/program2.avif',
         },
         {
             title: 'Workshop Psikologis',
             description: 'Workshop interaktif tentang manajemen stres, komunikasi efektif, dan pengembangan diri.',
-            image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1920',
+            image: '/images/program3.avif',
             animation: 'heartbeat',
         },
     ];
@@ -77,7 +76,7 @@ const ProgramK2 = () => {
         >
             <div className="container mx-auto px-6 max-w-4xl py-24">
                 <div className="text-center mb-20">
-                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-charcoal tracking-tighter mb-4">
+                    <h2 className="text-5xl md:text-6xl font-outfit font-bold text-charcoal mb-4">
                         Program K2+
                     </h2>
                     <p className="text-xl text-charcoal/70 max-w-2xl mx-auto">
@@ -96,6 +95,9 @@ const ProgramK2 = () => {
                                     <img
                                         src={program.image}
                                         alt={program.title}
+                                        width="1200"
+                                        height="800"
+                                        loading={index === 0 ? 'eager' : 'lazy'}
                                         className="w-full h-full object-cover"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/70"></div>

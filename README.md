@@ -1,99 +1,104 @@
 # Klinik K2+ Chatbot
 
-Website konseling dan chatbot untuk layanan kesehatan mental mahasiswa UNU Yogyakarta.
+Landing page konseling dan chatbot untuk layanan kesehatan mental mahasiswa UNU Yogyakarta.
 
 ## Tech Stack
 
-**Frontend:**
+Frontend:
 - React 18
 - Vite
 - TailwindCSS
-- GSAP (animations)
+- GSAP
 - React Router DOM
 
-**Backend:**
-- Python (FastAPI)
-- Ollama (LLM)
+Backend:
+- Python
+- FastAPI
+- Ollama
 
 ## Getting Started
 
+Run every command from the project root:
+
+```bash
+cd C:\klinik-k2
+```
+
 ### Prerequisites
+
 - Node.js 18+
 - Python 3.8+
 - Ollama
 
 ### Installation
 
-1. **Install Frontend Dependencies**
-   ```bash
-   pnpm install
-   ```
-
-2. **Install Backend Dependencies**
-   ```bash
-   cd backend
-   pip install -r requirements.txt
-   ```
-
-3. **Download Ollama Model**
-   ```bash
-   ollama pull llama3.2
-   ```
+```bash
+pnpm install
+pip install -r backend/requirements.txt
+ollama pull llama3.2
+```
 
 ### Running the App
 
-1. **Start Ollama**
-   ```bash
-   ollama serve
-   ```
+Start Ollama:
 
-2. **Start Python Backend** (new terminal)
-   ```bash
-   cd backend
-   uvicorn main:app --reload --port 8000
-   ```
+```bash
+ollama serve
+```
 
-3. **Start Frontend** (new terminal)
-   ```bash
-   pnpm dev
-   ```
+Start the Python backend from the root:
 
-4. Open `http://localhost:5173`
+```bash
+pnpm run dev:backend
+```
+
+Start the frontend from the root:
+
+```bash
+pnpm dev
+```
+
+Open `http://localhost:5173`.
 
 ## Project Structure
 
-```
-klinik-k2-plus-main/
-├── backend/
-│   ├── main.py              # FastAPI server
-│   ├── ollama_service.py    # Ollama communication
-│   └── requirements.txt     # Python dependencies
-├── src/
-│   ├── chatbot/             # Chatbot components
-│   ├── components/          # UI components
-│   ├── pages/               # Page components
-│   ├── App.jsx              # Main app
-│   └── index.css            # Global styles
-├── public/                   # Static assets
-└── package.json
+```text
+klinik-k2/
+|-- backend/
+|   |-- main.py
+|   |-- ollama_service.py
+|   `-- requirements.txt
+|-- public/
+|-- src/
+|   |-- chatbot/
+|   |-- components/
+|   |-- pages/
+|   |-- App.jsx
+|   `-- index.css
+|-- index.html
+|-- package.json
+|-- pnpm-lock.yaml
+|-- postcss.config.js
+|-- tailwind.config.js
+`-- vite.config.js
 ```
 
 ## API Endpoints
 
-| Method | Endpoint  | Description        |
-|--------|-----------|-------------------|
-| GET    | /         | API info          |
-| GET    | /health   | Health check      |
-| POST   | /chat     | Chat with bot     |
+| Method | Endpoint  | Description    |
+|--------|-----------|----------------|
+| GET    | /         | API info       |
+| GET    | /health   | Health check   |
+| POST   | /chat     | Chat with bot  |
 
 ## Features
 
-- 🏠 Homepage with service information
-- 📋 Counseling registration form
-- 💬 AI-powered chatbot (Ollama + llama3.2)
-- 📱 Responsive design
-- ✨ Smooth animations
+- Homepage with service information
+- Counseling registration form
+- AI-powered chatbot with Ollama
+- Responsive design
+- Smooth animations
 
 ## License
 
-© 2024 Klinik K2+ - UNU Yogyakarta
+Copyright 2024 Klinik K2+ - UNU Yogyakarta
